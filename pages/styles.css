@@ -1,0 +1,45 @@
+.keyboard-wrapper {
+   margin: 0 auto;
+}
+
+.keyboard {
+   display: flex;
+   flex-wrap: wrap;
+   width: 755px;
+   gap: 5px;
+}
+
+.size1 {
+   display: flex;
+   height: 45px;
+   width: 45px;
+   align-items: center;
+   justify-content: center;
+   background-color: grey;
+   border-radius: 5px;
+}
+
+
+.size2 {
+   display: flex;
+   height: 45px;
+   width: 52px;
+   align-items: center;
+   justify-content: center;
+   background-color: grey;
+   border-radius: 5px;
+}
+
+.size3 {
+   display: flex;
+   height: 45px;
+   width: 104px;
+   align-items: center;
+   justify-content: center;
+   background-color: grey;
+   border-radius: 5px;
+}
+
+.active {
+   background-color: aqua;
+}
