@@ -5,41 +5,59 @@
 .keyboard {
    display: flex;
    flex-wrap: wrap;
-   width: 755px;
+   width: 759px;
    gap: 5px;
 }
 
-.size1 {
+.key {
    display: flex;
-   height: 45px;
-   width: 45px;
    align-items: center;
    justify-content: center;
    background-color: grey;
+   font-weight: bold;
+   color: white;
    border-radius: 5px;
+   /*user-select: none;*/
+   transition: all 0.3s ease;
+   border: 0;
+   padding: 0;
 }
 
+.key:hover {
+   cursor: pointer;
+   opacity: 0.7;
+
+}
+
+.functional {
+   background-color: black;
+   color: grey;
+}
+
+.size1 {
+   height: 45px;
+   width: 45px;
+}
 
 .size2 {
-   display: flex;
    height: 45px;
    width: 52px;
-   align-items: center;
-   justify-content: center;
-   background-color: grey;
-   border-radius: 5px;
 }
 
 .size3 {
-   display: flex;
    height: 45px;
-   width: 104px;
-   align-items: center;
-   justify-content: center;
-   background-color: grey;
-   border-radius: 5px;
+   width: 102px;
+}
+
+.size9 {
+   height: 45px;
+   width: 338px;
 }
 
 .active {
    background-color: aqua;
+}
+
+.hidden {
+   display: none;
 }
