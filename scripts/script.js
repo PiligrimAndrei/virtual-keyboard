@@ -1,6 +1,6 @@
 const data = [
    {
-      id: '1',
+      id: 'Backquote',
       size: 1,
       type: 'normal',
       ru: ['ё', 'Ё'],
@@ -78,14 +78,14 @@ const data = [
       en: ['0', ')']
    },
    {
-      id: 3,
+      id: 'Minus',
       size: 1,
       type: 'number',
       ru: ['-', '_'],
       en: ['-', '_']
    },
    {
-      id: 3,
+      id: 'Equal',
       size: 1,
       type: 'number',
       ru: ['=', '+'],
@@ -367,8 +367,8 @@ const data = [
       id: 'ArrowUp',
       size: 1,
       type: 'functional',
-      ru: ['^', '^'],
-      en: ['^', '^']
+      ru: ['&#9650;', '&#9650;'],
+      en: ['&#9650;', '&#9650;']
    },
    {
       id: 'ShiftRight',
@@ -385,7 +385,7 @@ const data = [
       en: ['CTRL', 'CTRL']
    },
    {
-      id: 3,
+      id: 'MetaLeft',
       size: 1,
       type: 'functional',
       ru: ['WIN', 'WIN'],
@@ -408,7 +408,7 @@ const data = [
    },
 
    {
-      id: 3,
+      id: 'AltRight',
       size: 1,
       type: 'functional',
       ru: ['ALT', 'ALT'],
@@ -418,22 +418,22 @@ const data = [
       id: 'ArrowLeft',
       size: 1,
       type: 'functional',
-      ru: ['<', '<'],
-      en: ['<', '<']
+      ru: ['&#9668;', '&#9668;'],
+      en: ['&#9668;', '&#9668;']
    },
    {
       id: 'ArrowDown',
       size: 1,
       type: 'functional',
-      ru: ['/', '/'],
-      en: ['/', '/']
+      ru: ['&#9660;', '&#9660;'],
+      en: ['&#9660;', '&#9660;']
    },
    {
       id: 'ArrowRight',
       size: 1,
       type: 'functional',
-      ru: ['>', '>'],
-      en: ['>', '>']
+      ru: ['&#9658;', '&#9658;'],
+      en: ['&#9658;', '&#9658;']
    },
    {
       id: 'CtrlRight',
@@ -468,19 +468,27 @@ class Key {
          } else {
             template += `<span class='capsOn hidden'> ${this.en[0]}</span>`
          }
-         template += `<span class='shiftCapsOn hidden'> ${this.en[1]}</span>`
+         if (this.type != 'number') {
+            template += `<span class='shiftCapsOn hidden'> ${this.en[0]}</span>`
+         } else {
+            template += `<span class='shiftCapsOn hidden'> ${this.en[1]}</span>`
+         }
          template += `</span>`
       }
       if (this.ru) {
          template += `<span class='ru hidden'>`;
          template += `<span class='allDown'> ${this.ru[0]}</span>`;
-         template += `<span class='shifUp hidden'> ${this.ru[1]}</span>`;
+         template += `<span class='shiftUp hidden'> ${this.ru[1]}</span>`;
          if (this.type != 'number') {
             template += `<span class='capsOn hidden'> ${this.ru[1]}</span>`
          } else {
             template += `<span class='capsOn hidden'> ${this.ru[0]}</span>`
          }
-         template += `<span class='shiftCapsOn hidden'> ${this.ru[1]}</span>`;
+         if (this.type != 'number') {
+            template += `<span class='shiftCapsOn hidden'> ${this.ru[0]}</span>`
+         } else {
+            template += `<span class='shiftCapsOn hidden'> ${this.ru[1]}</span>`
+         }
          template += `</span>`;
       }
       key.innerHTML = template;
@@ -536,64 +544,84 @@ document.addEventListener('keyup', (event) => onKeyUp(event));
 
 let capsOn = false;
 let langOn = 'en';
-let langOff = 'ru'
+let langOff = 'ru';
+let shiftOn = false;
+
+let shiftSpan = document.querySelectorAll('.shiftUp');
+let allDownSpan = document.querySelectorAll('.allDown');
+let capsSpan = document.querySelectorAll('.capsOn');
+let shiftCapsSpan = document.querySelectorAll('.shiftCapsOn');
 
 function onKeyDown(event) {
    event.preventDefault();
    let activatedBtn = document.getElementById(event.code);
-   console.log(event.code)
+   //console.log(event.code)
    if (!(activatedBtn === null)) {
-      activatedBtn.classList.add('active');
-      if (event.code == 'Enter') {
-         inputArea.innerHTML += '\n'
-      } else if (event.code == 'Backspace') {
-         inputArea.innerHTML = inputArea.innerHTML.slice(0, -1);
-      } else if (event.code == 'ShiftLeft' || event.code == 'ShiftRight') {
-         shiftOnChange();
-      } else if (event.code == 'CapsLock') {
-         capsOnChange();
-      } else if (event.code == 'AltLeft') {
-         langChange();
-      } else {
-         inputArea.innerHTML += event.code;
-      }
-
+      if (event.code != 'CapsLock') {
+         activatedBtn.classList.add('active');
+         if (event.code == 'Enter') {
+            inputArea.innerHTML += '\n'
+         } else if (event.code == 'Backspace') {
+            inputArea.innerHTML = inputArea.innerHTML.slice(0, -1);
+         } else if (event.code == 'ShiftLeft' || event.code == 'ShiftRight') {
+            shiftOnChange();
+         } else if (event.code == 'AltLeft') {
+            langChange();
+         } else {
+            inputArea.innerHTML += event.code;
+         }
+      } else capsOnChange();
    }
 }
 function onKeyUp(event) {
    event.preventDefault();
    let activatedBtn = document.getElementById(event.code);
    if (!(activatedBtn === null)) {
-      activatedBtn.classList.remove('active');
+      if (event.code != 'CapsLock')
+         activatedBtn.classList.remove('active');
       if (event.code == 'ShiftLeft' || event.code == 'ShiftRight') {
          shiftOffChange();
       }
    }
 }
 function shiftOnChange() {
-   // TO DO  проверка на Caps Lock
-   //let shiftSpan = document.querySelectorAll('.en>.shiftUp');
-   let shiftSpan = document.querySelectorAll(('.' + langOn + '>.shiftUp'));
-   let allDownSpan = document.querySelectorAll('.en>.allDown');
-   shiftSpan.forEach(el => el.classList.remove('hidden'));
-   allDownSpan.forEach(el => el.classList.add('hidden'));
-
+   //let shiftSpan = document.querySelectorAll('.shiftUp');
+   //let allDownSpan = document.querySelectorAll('.allDown');
+   //let capsSpan = document.querySelectorAll('.capsOn');
+   //let shiftCapsSpan = document.querySelectorAll('.shiftCapsOn');
+   console.log(capsSpan)
+   capsSpan.forEach(el => el.classList.add('hidden'));
+   if (capsOn) {
+      shiftCapsSpan.forEach(el => el.classList.remove('hidden'));
+      allDownSpan.forEach(el => el.classList.add('hidden'));
+   } else {
+      shiftCapsSpan.forEach(el => el.classList.add('hidden'));
+      shiftSpan.forEach(el => el.classList.remove('hidden'));
+      allDownSpan.forEach(el => el.classList.add('hidden'));
+   }
 }
 
 function shiftOffChange() {
-   // TO DO  проверка на Caps Lock
-   let shiftSpan = document.querySelectorAll('.en>.shiftUp');
-   let allDownSpan = document.querySelectorAll('.en>.allDown');
-   shiftSpan.forEach(el => el.classList.add('hidden'));
-   allDownSpan.forEach(el => el.classList.remove('hidden'));
+   //let shiftSpan = document.querySelectorAll('.shiftUp');
+   //let allDownSpan = document.querySelectorAll('.allDown');
+   //let capsSpan = document.querySelectorAll('.capsOn');
+   //let shiftCapsSpan = document.querySelectorAll('.shiftCapsOn');
+   if (capsOn) {
+      capsSpan.forEach(el => el.classList.remove('hidden'));
+      shiftCapsSpan.forEach(el => el.classList.add('hidden'));
+      allDownSpan.forEach(el => el.classList.add('hidden'));
+   } else {
+      shiftSpan.forEach(el => el.classList.add('hidden'));
+      allDownSpan.forEach(el => el.classList.remove('hidden'));
+   }
 }
 
 function capsOnChange() {
    capsOn = !capsOn
-   //console.log('CAPS LOCK')
-   let capsSpan = document.querySelectorAll('.capsOn');
-   let allDownSpan = document.querySelectorAll('.allDown');
-   //console.log(capsSpan, allDownSpan)
+   let capsLockBtn = document.getElementById('CapsLock');
+   capsLockBtn.classList.toggle('active');
+   //let capsSpan = document.querySelectorAll('.capsOn');
+   //let allDownSpan = document.querySelectorAll('.allDown');
    if (capsOn) {
       capsSpan.forEach(el => el.classList.remove('hidden'));
       allDownSpan.forEach(el => el.classList.add('hidden'));
@@ -618,8 +646,6 @@ function langChange() {
       allDownSpan = document.querySelectorAll('.en');
       allDownSpan.forEach(el => el.classList.remove('hidden'));
    }
-   //let allDownSpan = document.querySelectorAll('.en>.allDown');
-   //allDownSpan.forEach(el => el.classList.remove('hidden'));
 }
 
 //console.log(shiftChange());
