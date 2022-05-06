@@ -1,6 +1,6 @@
 const data = [
    {
-      id: 1,
+      id: '1',
       size: 1,
       type: 'normal',
       ru: ['ё', 'Ё'],
@@ -8,70 +8,70 @@ const data = [
    },
 
    {
-      id: 2,
+      id: 'Digit1',
       size: 1,
       type: 'number',
       ru: ['1', '!'],
       en: ['1', '!']
    },
    {
-      id: 3,
+      id: 'Digit2',
       size: 1,
       type: 'number',
       ru: ['2', '"'],
       en: ['2', '@']
    },
    {
-      id: 3,
+      id: 'Digit3',
       size: 1,
       type: 'number',
       ru: ['3', '№'],
       en: ['3', '#']
    },
    {
-      id: 3,
+      id: 'Digit4',
       size: 1,
       type: 'number',
       ru: ['4', ';'],
       en: ['4', '$']
    },
    {
-      id: 3,
+      id: 'Digit5',
       size: 1,
       type: 'number',
       ru: ['5', '%'],
       en: ['5', '%']
    },
    {
-      id: 3,
+      id: 'Digit6',
       size: 1,
       type: 'number',
       ru: ['6', ':'],
       en: ['6', '^']
    },
    {
-      id: 3,
+      id: 'Digit7',
       size: 1,
       type: 'number',
       ru: ['7', '?'],
       en: ['7', '&']
    },
    {
-      id: 3,
+      id: 'Digit8',
       size: 1,
       type: 'number',
       ru: ['8', '*'],
       en: ['8', '*']
    },
    {
-      id: 3,
+      id: 'Digit9',
       size: 1,
       type: 'number',
       ru: ['9', '('],
       en: ['9', '(']
    },
    {
-      id: 3,
+      id: 'Digit0',
       size: 1,
       type: 'number',
       ru: ['0', ')'],
@@ -92,293 +92,287 @@ const data = [
       en: ['=', '+']
    },
    {
-      id: 3,
+      id: 'Backspace',
       size: 3,
       type: 'functional',
       ru: ['Backspace', 'Backspace'],
       en: ['Backspace', 'Backspace']
    },
    {
-      id: 3,
+      id: 'Tab',
       size: 2,
       type: 'functional',
       ru: ['Tab', 'Tab'],
       en: ['Tab', 'Tab']
    },
    {
-      id: 3,
+      id: 'KeyQ',
       size: 1,
       type: 'normal',
       ru: ['й', 'Й'],
       en: ['q', 'Q']
    },
    {
-      id: 3,
+      id: 'KeyW',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['ц', 'Ц'],
+      en: ['w', 'W']
    },
    {
-      id: 3,
+      id: 'KeyY',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['e', 'E'],
+      en: ['у', 'У']
    },
    {
-      id: 3,
+      id: 'KeyR',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['к', 'К'],
+      en: ['r', 'R']
    }, {
-      id: 3,
+      id: 'KeyT',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['е', 'Е'],
+      en: ['t', 'T']
    },
    {
-      id: 3,
+      id: 'KeyY',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['н', 'Н'],
+      en: ['y', 'Y']
    }, {
-      id: 3,
+      id: 'KeyU',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['г', 'Г'],
+      en: ['u', 'U']
    },
    {
-      id: 3,
+      id: 'KeyI',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['ш', 'Ш'],
+      en: ['i', 'I']
    }, {
-      id: 3,
+      id: 'KeyO',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['щ', 'Щ'],
+      en: ['o', 'O']
    },
    {
-      id: 3,
+      id: 'KeyP',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['з', 'З'],
+      en: ['p', 'P']
    },
    {
-      id: 3,
+      id: 'BracketLeft',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['х', 'Х'],
+      en: ['[', '{']
    },
    {
-      id: 3,
+      id: 'BracketRight',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['ъ', 'Ъ'],
+      en: [']', '}']
    },
    {
-      id: 3,
+      id: 'Backslash',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['&#92', '&#47;'],
+      en: ['&#92;', '|']
    },
    {
-      id: 3,
+      id: 'Delete',
       size: 1,
       type: 'functional',
       ru: ['DEL', 'DEL'],
       en: ['DEL', 'DEL']
    },
    {
-      id: 3,
+      id: 'CapsLock',
       size: 3,
       type: 'functional',
       ru: ['Caps Lock', 'Caps Lock'],
       en: ['Caps Lock', 'Caps Lock']
    },
    {
-      id: 3,
+      id: 'KeyA',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['ф', 'Ф'],
+      en: ['a', 'A']
    },
    {
-      id: 3,
+      id: 'KeyS',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['ы', 'Ы'],
+      en: ['s', 'S']
    },
    {
-      id: 3,
+      id: 'KeyD',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['в', 'В'],
+      en: ['d', 'D']
    },
    {
-      id: 3,
+      id: 'KeyF',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['а', 'А'],
+      en: ['f', 'F']
    }, {
-      id: 3,
+      id: 'KeyG',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['п', 'П'],
+      en: ['g', 'G']
    },
    {
-      id: 3,
+      id: 'KeyH',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['р', 'Р'],
+      en: ['h', 'H']
    }, {
-      id: 3,
+      id: 'KeyJ',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['о', 'О'],
+      en: ['j', 'J']
    },
    {
-      id: 3,
+      id: 'KeyK',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['л', 'Л'],
+      en: ['k', 'K']
    }, {
-      id: 3,
+      id: 'KeyL',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['д', 'Д'],
+      en: ['l', 'L']
    },
    {
-      id: 3,
+      id: 'Key',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['ж', 'Ж'],
+      en: [';', ':']
    },
    {
-      id: 3,
+      id: 'Key',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['э', 'Э'],
+      en: ['"', '"']
    },
    {
-      id: 3,
+      id: 'Enter',
       size: 3,
       type: 'functional',
       ru: ['ENTER', 'ENTER'],
       en: ['ENTER', 'ENTER']
    },
    {
-      id: 3,
+      id: 'ShiftLeft',
       size: 3,
       type: 'functional',
       ru: ['SHIFT', 'SHIFT'],
       en: ['SHIFT', 'SHIFT']
    },
    {
-      id: 3,
+      id: 'KeyZ',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['я', 'Я'],
+      en: ['z', 'Z']
    },
    {
-      id: 3,
+      id: 'KeyX',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['ч', 'Ч'],
+      en: ['x', 'X']
    },
    {
-      id: 3,
+      id: 'KeyC',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['c', 'C'],
+      en: ['с', 'С']
    },
    {
-      id: 3,
+      id: 'KeyV',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['м', 'М'],
+      en: ['v', 'V']
    }, {
-      id: 3,
+      id: 'KeyB',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['и', 'И'],
+      en: ['b', 'B']
    },
    {
-      id: 3,
+      id: 'KeyN',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['т', 'Т'],
+      en: ['n', 'N']
    }, {
-      id: 3,
+      id: 'KeyM',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['ь', 'Ь'],
+      en: ['m', 'M']
    },
    {
-      id: 3,
+      id: 'Coma',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
-   }, {
-      id: 3,
-      size: 1,
-      type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['б', 'Б'],
+      en: [',', '<']
    },
    {
-      id: 3,
+      id: 'Period',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['ю', 'Ю'],
+      en: ['.', '>']
    },
    {
-      id: 3,
+      id: 'Slash',
       size: 1,
       type: 'normal',
-      ru: ['й', 'Й'],
-      en: ['q', 'Q']
+      ru: ['.', ','],
+      en: ['/', '?']
    },
    {
-      id: 3,
+      id: 'ArrowUp',
       size: 1,
       type: 'functional',
       ru: ['^', '^'],
       en: ['^', '^']
    },
    {
-      id: 3,
-      size: 1,
+      id: 'ShiftRight',
+      size: 3,
       type: 'functional',
       ru: ['Shift', 'Shift'],
       en: ['Shift', 'Shift']
@@ -398,7 +392,7 @@ const data = [
       en: ['WIN', 'WIN']
    },
    {
-      id: 3,
+      id: 'AltLeft',
       size: 1,
       type: 'functional',
       ru: ['ALT', 'ALT'],
@@ -406,7 +400,7 @@ const data = [
    },
 
    {
-      id: 3,
+      id: 'Space',
       size: 9,
       type: 'functional',
       ru: [' ', ' '],
@@ -421,43 +415,101 @@ const data = [
       en: ['ALT', 'ALT']
    },
    {
-      id: 3,
-      size: 2,
-      type: 'functional',
-      ru: ['CTRL', 'CTRL'],
-      en: ['CTRL', 'CTRL']
-   },
-   {
-      id: 3,
+      id: 'ArrowLeft',
       size: 1,
       type: 'functional',
       ru: ['<', '<'],
       en: ['<', '<']
    },
    {
-      id: 3,
+      id: 'ArrowDown',
       size: 1,
       type: 'functional',
       ru: ['/', '/'],
       en: ['/', '/']
    },
    {
-      id: 3,
+      id: 'ArrowRight',
       size: 1,
       type: 'functional',
       ru: ['>', '>'],
       en: ['>', '>']
    },
+   {
+      id: 'CtrlRight',
+      size: 1,
+      type: 'functional',
+      ru: ['CTRL', 'CTRL'],
+      en: ['CTRL', 'CTRL']
+   },
 
 ]
+/* Class Key */
+class Key {
+   constructor({ id, size, type, ru, en }) {
+      this.id = id;
+      this.size = size;
+      this.type = type;
+      this.ru = ru;
+      this.en = en;
+   }
+   generateKey() {
+      let template = '';
+      let key = document.createElement('button');
+      key.className = 'key'
+      key.setAttribute('id', this.id)
+      key.classList.add('size' + this.size, this.type)
+      if (this.en) {
+         template += `<span class='en'>`
+         template += `<span class='allDown'> ${this.en[0]}</span>`
+         template += `<span class='shiftUp hidden'> ${this.en[1]}</span>`
+         if (this.type != 'number') {
+            template += `<span class='capsOn hidden'> ${this.en[1]}</span>`
+         } else {
+            template += `<span class='capsOn hidden'> ${this.en[0]}</span>`
+         }
+         template += `<span class='shiftCapsOn hidden'> ${this.en[1]}</span>`
+         template += `</span>`
+      }
+      if (this.ru) {
+         template += `<span class='ru hidden'>`;
+         template += `<span class='allDown'> ${this.ru[0]}</span>`;
+         template += `<span class='shifUp hidden'> ${this.ru[1]}</span>`;
+         if (this.type != 'number') {
+            template += `<span class='capsOn hidden'> ${this.ru[1]}</span>`
+         } else {
+            template += `<span class='capsOn hidden'> ${this.ru[0]}</span>`
+         }
+         template += `<span class='shiftCapsOn hidden'> ${this.ru[1]}</span>`;
+         template += `</span>`;
+      }
+      key.innerHTML = template;
+      return key
+   }
+   click() {
+      this.addEventListener('click', this.activate)
+   }
+
+   activate() {
+      this.classList.add('active')
+   }
+}
+/* End class Key */
+
+
+/*   Start render page */
+function addTextarea() {
+   let textarea = document.createElement('textarea');
+   textarea.classList.add('input__area');
+   document.body.append(textarea);
+}
 
 const renderKeyboardToDom = () => {
-   /*const keyboardWrapper = getKeyboardWrapper();*/
+   addTextarea();
    let keyboardWrapper = document.createElement('div');
    keyboardWrapper.className = ('keyboard-wrapper')
    let keyboard = document.createElement('div');
    keyboard.className = ('keyboard')
-
    keyboardWrapper.appendChild(keyboard);
    document.body.appendChild(keyboardWrapper);
    generateKeys(data).forEach(key => {
@@ -470,55 +522,104 @@ const generateKeys = (data) => {
    let keys = [];
    data.forEach(elem => {
       keys.push(new Key(elem))
-
    });
-   console.log(data);
-   console.log(keys);
    return keys
+}
+/*  End render page */
+window.addEventListener('DOMContentLoade', renderKeyboardToDom())
+
+let inputArea = document.querySelector('textarea');
+console.log(inputArea);
+
+document.addEventListener('keydown', (event) => onKeyDown(event));
+document.addEventListener('keyup', (event) => onKeyUp(event));
+
+let capsOn = false;
+let langOn = 'en';
+let langOff = 'ru'
+
+function onKeyDown(event) {
+   event.preventDefault();
+   let activatedBtn = document.getElementById(event.code);
+   console.log(event.code)
+   if (!(activatedBtn === null)) {
+      activatedBtn.classList.add('active');
+      if (event.code == 'Enter') {
+         inputArea.innerHTML += '\n'
+      } else if (event.code == 'Backspace') {
+         inputArea.innerHTML = inputArea.innerHTML.slice(0, -1);
+      } else if (event.code == 'ShiftLeft' || event.code == 'ShiftRight') {
+         shiftOnChange();
+      } else if (event.code == 'CapsLock') {
+         capsOnChange();
+      } else if (event.code == 'AltLeft') {
+         langChange();
+      } else {
+         inputArea.innerHTML += event.code;
+      }
+
+   }
+}
+function onKeyUp(event) {
+   event.preventDefault();
+   let activatedBtn = document.getElementById(event.code);
+   if (!(activatedBtn === null)) {
+      activatedBtn.classList.remove('active');
+      if (event.code == 'ShiftLeft' || event.code == 'ShiftRight') {
+         shiftOffChange();
+      }
+   }
+}
+function shiftOnChange() {
+   // TO DO  проверка на Caps Lock
+   //let shiftSpan = document.querySelectorAll('.en>.shiftUp');
+   let shiftSpan = document.querySelectorAll(('.' + langOn + '>.shiftUp'));
+   let allDownSpan = document.querySelectorAll('.en>.allDown');
+   shiftSpan.forEach(el => el.classList.remove('hidden'));
+   allDownSpan.forEach(el => el.classList.add('hidden'));
 
 }
 
-/* Class Key */
-class Key {
-   constructor({ id, size, type, ru, en }) {
-      this.id = id;
-      this.size = size;
-      this.type = type;
-      this.ru = ru;
-      this.en = en;
-   }
-   generateKey() {
-      let template = '';
-      /* TODO  add keyboard-wrapper & keyboard */
-
-      console.log('this', this)
-      let key = document.createElement('button');
-      key.className = 'key'
-      key.setAttribute('data-id', this.id)
-      key.classList.add('size' + this.size, this.type)
-      if (this.en) {
-         template += `<span class='eng'>`
-         template += `<span class='capsDown'> ${this.en[0]}</span>`
-         template += `<span class='capsUp hidden'> ${this.en[1]}</span>`
-         template += `<span class='capsOn hidden'> ${this.en[1]}</span>`
-         template += `<span class='shiftCapsOn hidden'> ${this.en[1]}</span>`
-         template += `</span>`
-      }
-      if (this.ru) {
-         template += `<span class='ru hidden'>`;
-         template += `<span class='capsDown hidden'> ${this.ru[0]}</span>`;
-         template += `<span class='capsUp hidden'> ${this.ru[1]}</span>`;
-         template += `<span class='capsOn hidden'> ${this.ru[1]}</span>`;
-         template += `<span class='shiftCapsOn hidden'> ${this.ru[1]}</span>`;
-         template += `</span>`;
-      }
-
-      key.innerHTML = template;
-      return key
-   }
-
+function shiftOffChange() {
+   // TO DO  проверка на Caps Lock
+   let shiftSpan = document.querySelectorAll('.en>.shiftUp');
+   let allDownSpan = document.querySelectorAll('.en>.allDown');
+   shiftSpan.forEach(el => el.classList.add('hidden'));
+   allDownSpan.forEach(el => el.classList.remove('hidden'));
 }
 
-console.log(renderKeyboardToDom())
+function capsOnChange() {
+   capsOn = !capsOn
+   //console.log('CAPS LOCK')
+   let capsSpan = document.querySelectorAll('.capsOn');
+   let allDownSpan = document.querySelectorAll('.allDown');
+   //console.log(capsSpan, allDownSpan)
+   if (capsOn) {
+      capsSpan.forEach(el => el.classList.remove('hidden'));
+      allDownSpan.forEach(el => el.classList.add('hidden'));
+   } else {
+      capsSpan.forEach(el => el.classList.add('hidden'));
+      allDownSpan.forEach(el => el.classList.remove('hidden'));
+   }
+}
+function langChange() {
+   if (langOn == 'en') {
+      langOn = 'ru';
+      langOff = 'en';
+      let allDownSpan = document.querySelectorAll('.en');
+      allDownSpan.forEach(el => el.classList.add('hidden'));
+      allDownSpan = document.querySelectorAll('.ru');
+      allDownSpan.forEach(el => el.classList.remove('hidden'));
+   } else {
+      langOn = 'en';
+      langOff = 'ru';
+      let allDownSpan = document.querySelectorAll('.ru');
+      allDownSpan.forEach(el => el.classList.add('hidden'));
+      allDownSpan = document.querySelectorAll('.en');
+      allDownSpan.forEach(el => el.classList.remove('hidden'));
+   }
+   //let allDownSpan = document.querySelectorAll('.en>.allDown');
+   //allDownSpan.forEach(el => el.classList.remove('hidden'));
+}
 
-
+//console.log(shiftChange());
