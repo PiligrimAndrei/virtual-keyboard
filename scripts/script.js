@@ -120,11 +120,11 @@ const data = [
       en: ['w', 'W']
    },
    {
-      id: 'KeyY',
+      id: 'KeyE',
       size: 1,
       type: 'normal',
-      ru: ['e', 'E'],
-      en: ['у', 'У']
+      ru: ['у', 'У'],
+      en: ['e', 'E']
    },
    {
       id: 'KeyR',
@@ -366,7 +366,7 @@ const data = [
    {
       id: 'ArrowUp',
       size: 1,
-      type: 'functional',
+      type: 'arrow',
       ru: ['&#9650;', '&#9650;'],
       en: ['&#9650;', '&#9650;']
    },
@@ -378,7 +378,7 @@ const data = [
       en: ['Shift', 'Shift']
    },
    {
-      id: 3,
+      id: 'ControlLeft',
       size: 2,
       type: 'functional',
       ru: ['CTRL', 'CTRL'],
@@ -402,7 +402,7 @@ const data = [
    {
       id: 'Space',
       size: 9,
-      type: 'functional',
+      type: 'arrow',
       ru: [' ', ' '],
       en: [' ', ' ']
    },
@@ -417,26 +417,26 @@ const data = [
    {
       id: 'ArrowLeft',
       size: 1,
-      type: 'functional',
+      type: 'arrow',
       ru: ['&#9668;', '&#9668;'],
       en: ['&#9668;', '&#9668;']
    },
    {
       id: 'ArrowDown',
       size: 1,
-      type: 'functional',
+      type: 'arrow',
       ru: ['&#9660;', '&#9660;'],
       en: ['&#9660;', '&#9660;']
    },
    {
       id: 'ArrowRight',
       size: 1,
-      type: 'functional',
+      type: 'arrow',
       ru: ['&#9658;', '&#9658;'],
       en: ['&#9658;', '&#9658;']
    },
    {
-      id: 'CtrlRight',
+      id: 'ControlRight',
       size: 1,
       type: 'functional',
       ru: ['CTRL', 'CTRL'],
@@ -457,37 +457,38 @@ class Key {
       let template = '';
       let key = document.createElement('button');
       key.className = 'key'
+      key.setAttribute('data-id', this.id)
       key.setAttribute('id', this.id)
       key.classList.add('size' + this.size, this.type)
       if (this.en) {
          template += `<span class='en'>`
-         template += `<span class='allDown'> ${this.en[0]}</span>`
-         template += `<span class='shiftUp hidden'> ${this.en[1]}</span>`
+         template += `<span class='allDown'>${this.en[0]}</span>`
+         template += `<span class='shiftUp hidden'>${this.en[1]}</span>`
          if (this.type != 'number') {
-            template += `<span class='capsOn hidden'> ${this.en[1]}</span>`
+            template += `<span class='capsOn hidden'>${this.en[1]}</span>`
          } else {
-            template += `<span class='capsOn hidden'> ${this.en[0]}</span>`
+            template += `<span class='capsOn hidden'>${this.en[0]}</span>`
          }
          if (this.type != 'number') {
-            template += `<span class='shiftCapsOn hidden'> ${this.en[0]}</span>`
+            template += `<span class='shiftCapsOn hidden'>${this.en[0]}</span>`
          } else {
-            template += `<span class='shiftCapsOn hidden'> ${this.en[1]}</span>`
+            template += `<span class='shiftCapsOn hidden'>${this.en[1]}</span>`
          }
          template += `</span>`
       }
       if (this.ru) {
          template += `<span class='ru hidden'>`;
          template += `<span class='allDown'> ${this.ru[0]}</span>`;
-         template += `<span class='shiftUp hidden'> ${this.ru[1]}</span>`;
+         template += `<span class='shiftUp hidden'>${this.ru[1]}</span>`;
          if (this.type != 'number') {
-            template += `<span class='capsOn hidden'> ${this.ru[1]}</span>`
+            template += `<span class='capsOn hidden'>${this.ru[1]}</span>`
          } else {
-            template += `<span class='capsOn hidden'> ${this.ru[0]}</span>`
+            template += `<span class='capsOn hidden'>${this.ru[0]}</span>`
          }
          if (this.type != 'number') {
-            template += `<span class='shiftCapsOn hidden'> ${this.ru[0]}</span>`
+            template += `<span class='shiftCapsOn hidden'>${this.ru[0]}</span>`
          } else {
-            template += `<span class='shiftCapsOn hidden'> ${this.ru[1]}</span>`
+            template += `<span class='shiftCapsOn hidden'>${this.ru[1]}</span>`
          }
          template += `</span>`;
       }
@@ -509,6 +510,7 @@ class Key {
 function addTextarea() {
    let textarea = document.createElement('textarea');
    textarea.classList.add('input__area');
+   //textarea.setAttribute('autofocus', '');
    document.body.append(textarea);
 }
 
@@ -537,15 +539,17 @@ const generateKeys = (data) => {
 window.addEventListener('DOMContentLoade', renderKeyboardToDom())
 
 let inputArea = document.querySelector('textarea');
-console.log(inputArea);
 
 document.addEventListener('keydown', (event) => onKeyDown(event));
 document.addEventListener('keyup', (event) => onKeyUp(event));
+document.addEventListener('mousedown', (event) => onMouseDown(event));
+document.addEventListener('mouseup', (event) => onMouseUp(event));
 
 let capsOn = false;
 let langOn = 'en';
 let langOff = 'ru';
 let shiftOn = false;
+let langTrigger = false;
 
 let shiftSpan = document.querySelectorAll('.shiftUp');
 let allDownSpan = document.querySelectorAll('.allDown');
@@ -554,25 +558,16 @@ let shiftCapsSpan = document.querySelectorAll('.shiftCapsOn');
 
 function onKeyDown(event) {
    event.preventDefault();
+   if ((event.code == "ControlLeft" && event.altKey) || (event.code == "AltLeft" && event.ctrlKey)) {
+      //console.log('RU EN')
+      langTrigger = true;
+   } else langTrigger = false;
    let activatedBtn = document.getElementById(event.code);
-   //console.log(event.code)
    if (!(activatedBtn === null)) {
-      if (event.code != 'CapsLock') {
-         activatedBtn.classList.add('active');
-         if (event.code == 'Enter') {
-            inputArea.innerHTML += '\n'
-         } else if (event.code == 'Backspace') {
-            inputArea.innerHTML = inputArea.innerHTML.slice(0, -1);
-         } else if (event.code == 'ShiftLeft' || event.code == 'ShiftRight') {
-            shiftOnChange();
-         } else if (event.code == 'AltLeft') {
-            langChange();
-         } else {
-            inputArea.innerHTML += event.code;
-         }
-      } else capsOnChange();
+      getClick(event.code);
    }
 }
+
 function onKeyUp(event) {
    event.preventDefault();
    let activatedBtn = document.getElementById(event.code);
@@ -584,12 +579,35 @@ function onKeyUp(event) {
       }
    }
 }
+
+/* Mouse Event */
+function onMouseDown(event) {
+   event.preventDefault();
+   let keyId = '';
+   if (event.target.tagName == 'BUTTON') {
+      keyId = event.target.dataset.id;
+      event.target.classList.add('active');
+      if ((keyId == "ControlLeft" && event.altKey) || (keyId == "AltLeft" && event.ctrlKey)) {
+         //console.log('RU EN')
+         langTrigger = true;
+      } else langTrigger = false;
+      getClick(keyId);
+   }
+}
+
+function onMouseUp(event) {
+   event.preventDefault();
+   let keyId = '';
+   if (event.target.tagName == 'BUTTON') {
+      keyId = event.target.dataset.id;
+      if (keyId != 'CapsLock')
+         event.target.classList.remove('active');
+      if (keyId == 'ShiftLeft' || keyId == 'ShiftRight') {
+         shiftOffChange();
+      }
+   }
+}
 function shiftOnChange() {
-   //let shiftSpan = document.querySelectorAll('.shiftUp');
-   //let allDownSpan = document.querySelectorAll('.allDown');
-   //let capsSpan = document.querySelectorAll('.capsOn');
-   //let shiftCapsSpan = document.querySelectorAll('.shiftCapsOn');
-   console.log(capsSpan)
    capsSpan.forEach(el => el.classList.add('hidden'));
    if (capsOn) {
       shiftCapsSpan.forEach(el => el.classList.remove('hidden'));
@@ -602,10 +620,6 @@ function shiftOnChange() {
 }
 
 function shiftOffChange() {
-   //let shiftSpan = document.querySelectorAll('.shiftUp');
-   //let allDownSpan = document.querySelectorAll('.allDown');
-   //let capsSpan = document.querySelectorAll('.capsOn');
-   //let shiftCapsSpan = document.querySelectorAll('.shiftCapsOn');
    if (capsOn) {
       capsSpan.forEach(el => el.classList.remove('hidden'));
       shiftCapsSpan.forEach(el => el.classList.add('hidden'));
@@ -617,15 +631,15 @@ function shiftOffChange() {
 }
 
 function capsOnChange() {
+   console.log('!!!CAPSLOCK!!!')
    capsOn = !capsOn
    let capsLockBtn = document.getElementById('CapsLock');
-   capsLockBtn.classList.toggle('active');
-   //let capsSpan = document.querySelectorAll('.capsOn');
-   //let allDownSpan = document.querySelectorAll('.allDown');
    if (capsOn) {
+      capsLockBtn.classList.add('active');
       capsSpan.forEach(el => el.classList.remove('hidden'));
       allDownSpan.forEach(el => el.classList.add('hidden'));
    } else {
+      capsLockBtn.classList.remove('active');
       capsSpan.forEach(el => el.classList.add('hidden'));
       allDownSpan.forEach(el => el.classList.remove('hidden'));
    }
@@ -646,6 +660,70 @@ function langChange() {
       allDownSpan = document.querySelectorAll('.en');
       allDownSpan.forEach(el => el.classList.remove('hidden'));
    }
+}
+
+function getSimbol(code) {
+   let searchBtn = document.getElementById(code);
+   if (!searchBtn.classList.contains('functional')) {
+      let symbol = '';
+      if (langOn == 'en') searchSpan = searchBtn.children[0];
+      else searchSpan = searchBtn.children[1];
+      for (let i = 0; i < 4; i++) {
+         if (!searchSpan.children[i].classList.contains('hidden')) {
+            symbol = searchSpan.children[i].innerHTML
+         }
+      }
+      return symbol;
+   } else return '';
+}
+
+function getClick(code) {
+   let activatedBtn = document.getElementById(code);
+   if (code != 'CapsLock') {
+      activatedBtn.classList.add('active');
+      if (code == 'Enter') {
+         textSymbol('\n');
+      } else if (code == 'Delete') {
+         deleteSymbol();
+      } else if (code == 'Tab') {
+         textSymbol('    ');
+      } else if (code == 'Backspace') {
+         backspaceSymbol();
+      } else if ((code == 'ShiftLeft' || code == 'ShiftRight')) {
+         shiftOnChange();
+      } else if (langTrigger) {
+         langChange();
+      } else {
+         textSymbol(getSimbol(code));
+      }
+   } else capsOnChange();
+}
+
+
+function textSymbol(code) {
+   let inputArea = document.querySelector('.input__area');
+   let start = inputArea.selectionStart;
+   let end = inputArea.selectionEnd;
+   inputArea.textContent = inputArea.value.substring(0, start) + code + inputArea.value.substring(end);
+   inputArea.focus();
+   inputArea.setSelectionRange(start + code.length, start + code.length);
+}
+
+function deleteSymbol() {
+   let inputArea = document.querySelector('.input__area');
+   let start = inputArea.selectionStart;
+   inputArea.textContent = inputArea.value.substring(0, start) + inputArea.value.substring(start + 1);
+   inputArea.focus()
+   inputArea.setSelectionRange(start, start);
+}
+
+function backspaceSymbol() {
+   let inputArea = document.querySelector('.input__area');
+   let start = inputArea.selectionStart;
+   let end = inputArea.selectionEnd;
+   inputArea.textContent = inputArea.value.substring(0, start - 1) + inputArea.value.substring(end);
+   inputArea.focus()
+   inputArea.setSelectionRange(start - 1, start - 1);
 }
 
 //console.log(shiftChange());
