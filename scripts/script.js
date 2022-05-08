@@ -584,9 +584,9 @@ function onKeyUp(event) {
 function onMouseDown(event) {
    event.preventDefault();
    let keyId = '';
-   if (event.target.tagName == 'BUTTON') {
-      keyId = event.target.dataset.id;
-      event.target.classList.add('active');
+   if (event.target.closest('.key') && event.target.closest('.key').tagName == 'BUTTON') {
+      keyId = event.target.closest('.key').dataset.id;
+      event.target.closest('.key').classList.add('active');
       if ((keyId == "ControlLeft" && event.altKey) || (keyId == "AltLeft" && event.ctrlKey)) {
          //console.log('RU EN')
          langTrigger = true;
@@ -598,10 +598,10 @@ function onMouseDown(event) {
 function onMouseUp(event) {
    event.preventDefault();
    let keyId = '';
-   if (event.target.tagName == 'BUTTON') {
-      keyId = event.target.dataset.id;
+   if (event.target.closest('.key') && event.target.closest('.key').tagName == 'BUTTON') {
+      keyId = event.target.closest('.key').dataset.id;
       if (keyId != 'CapsLock')
-         event.target.classList.remove('active');
+         event.target.closest('.key').classList.remove('active');
       if (keyId == 'ShiftLeft' || keyId == 'ShiftRight') {
          shiftOffChange();
       }
