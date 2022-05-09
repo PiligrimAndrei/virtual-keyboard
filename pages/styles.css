@@ -1,11 +1,14 @@
 .keyboard-wrapper {
-   margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 
 .keyboard {
+   margin: 0 auto;
    display: flex;
    flex-wrap: wrap;
-   width: 759px;
+   width: 745px;
    gap: 5px;
 }
 
@@ -25,9 +28,10 @@
 }
 
 .input__area {
-   width: 750px;
+   width: 745px;
    height: 30vh;
-   margin: 0 auto;
+   margin-bottom: 20px;
+   font-size: 16px;
 }
 
 .key:hover {
@@ -54,17 +58,17 @@
 
 .size2 {
    height: 45px;
-   width: 52px;
+   width: 45px;
 }
 
 .size3 {
    height: 45px;
-   width: 99px;
+   width: 95px;
 }
 
 .size9 {
    height: 45px;
-   width: 343px;
+   width: 345px;
 }
 
 .active {
