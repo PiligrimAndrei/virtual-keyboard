@@ -506,6 +506,7 @@ class Key {
 /* End class Key */
 
 
+
 /*   Start render page */
 function addTextarea() {
    let textarea = document.createElement('textarea');
@@ -535,8 +536,11 @@ const generateKeys = (data) => {
    });
    return keys
 }
-/*  End render page */
+
 window.addEventListener('DOMContentLoade', renderKeyboardToDom())
+
+/*  End render page */
+/*  Events */
 
 let inputArea = document.querySelector('textarea');
 
@@ -551,10 +555,36 @@ let langOff = 'ru';
 let shiftOn = false;
 let langTrigger = false;
 
+
+window.addEventListener('beforeunload', () => {
+   localStorage.setItem('langOn', langOn);
+   localStorage.setItem('capsOn', capsOn);
+});
+
+window.addEventListener('load', () => {
+   if (localStorage.getItem('langOn')) {
+      langOn = localStorage.getItem('langOn');
+      if (langOn == 'en') {
+         langOn = 'ru';
+         langOff = 'en';
+      } else {
+         langOn = 'en';
+         langOff = 'ru';
+      }
+      langChange();
+   }
+   if (localStorage.getItem('capsOn') === 'true') {
+      capsOn = false;
+      capsOnChange();
+   }
+});
+
 let shiftSpan = document.querySelectorAll('.shiftUp');
 let allDownSpan = document.querySelectorAll('.allDown');
 let capsSpan = document.querySelectorAll('.capsOn');
 let shiftCapsSpan = document.querySelectorAll('.shiftCapsOn');
+
+/* key events */
 
 function onKeyDown(event) {
    event.preventDefault();
@@ -580,7 +610,7 @@ function onKeyUp(event) {
    }
 }
 
-/* Mouse Event */
+/* Mouse Events */
 function onMouseDown(event) {
    event.preventDefault();
    let keyId = '';
@@ -607,6 +637,9 @@ function onMouseUp(event) {
       }
    }
 }
+
+/*  Functions */
+
 function shiftOnChange() {
    capsSpan.forEach(el => el.classList.add('hidden'));
    if (capsOn) {
@@ -699,6 +732,7 @@ function getClick(code) {
    } else capsOnChange();
 }
 
+/* Textarea functions */
 
 function textSymbol(code) {
    let inputArea = document.querySelector('.input__area');
@@ -725,5 +759,3 @@ function backspaceSymbol() {
    inputArea.focus()
    inputArea.setSelectionRange(start - 1, start - 1);
 }
-
-//console.log(shiftChange());
